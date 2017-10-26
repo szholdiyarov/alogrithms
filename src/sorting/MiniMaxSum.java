@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class MiniMaxSum {
     public static void main(String[] args) {
-        int[] testValues = {1, 2, 3, 4, 5};
+        int[] testValues = {256741038, 623958417, 467905213, 714532089, 938071625};
         printMaxAndMinTotalValues(testValues);
 
     }
@@ -19,8 +19,8 @@ public class MiniMaxSum {
     private static void printMaxAndMinTotalValues(int[] array) {
         Arrays.sort(array);
 
-        int max = array[4] + array[3] + array[2] + array[1];
-        int min = array[0] + array[1] + array[2] + array[3];
+        BigInteger max = BigInteger.valueOf(array[4]).add(BigInteger.valueOf(array[3])).add(BigInteger.valueOf(array[2]).add(BigInteger.valueOf(array[1])));
+        BigInteger min = BigInteger.valueOf(array[0]).add(BigInteger.valueOf(array[1])).add(BigInteger.valueOf(array[2]).add(BigInteger.valueOf(array[3])));
 
         System.out.println(min + " " + max);
     }
