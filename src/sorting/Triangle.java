@@ -1,5 +1,6 @@
 package sorting;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
@@ -24,9 +25,88 @@ import java.util.Arrays;
 public class Triangle {
 
     public static void main(String[] args) {
-        int[] A = {10, 2, 5, 1, 8, 20};
-        Solution solution = new Solution();
-        System.out.println(solution.solution(A, A.length));
+        String[] unsorted = {"10", "3", "5", "4", "1"};
+        // your code goes here
+        for (int i = 0; i < unsorted.length; i++) {
+            BigInteger currentNumber = new BigInteger(unsorted[i]);
+            BigInteger minimumNumber = currentNumber;
+            int minimumNumberPosition = i;
+            for (int j = i + 1; j < unsorted.length; j++) {
+                BigInteger anotherNumber = new BigInteger(unsorted[j]);
+                if (anotherNumber.compareTo(minimumNumber) == -1) {
+                    minimumNumber = anotherNumber;
+                    minimumNumberPosition = j;
+                }
+            }
+            unsorted[minimumNumberPosition] = unsorted[i];
+            unsorted[i] = minimumNumber.toString();
+            System.out.println(unsorted[i]);
+        }
+
+//        int[] andrea = {2, 4, 5, 6, 7};
+//        int[] maria = {3, 8, 10, 12, 14};
+//        String gameType = "Even";
+//        System.out.println(winner(andrea, maria, gameType));
+
+        int[] a = {7, 10, 7};
+        int[] b = {2, 3, 4};
+        int[] c = {2, 7, 4};
+
+        System.out.println(Arrays.toString(triangleOrNot(a,b,c)));
+    }
+
+    /*
+     * Complete the function below.
+     */
+    static String winner(int[] andrea, int[] maria, String s) {
+        int andreaScores = 0;
+        int mariaScores = 0;
+
+        for (int i = 0; i < andrea.length; i++) {
+
+            if (s.equalsIgnoreCase("even") && (i % 2) == 0) {
+                andreaScores = andreaScores + (andrea[i] - maria[i]);
+                mariaScores = mariaScores + (maria[i] - andrea[i]);
+            }
+
+            if (s.equalsIgnoreCase("odd") && (i % 2) != 0) {
+                andreaScores = andreaScores + (andrea[i] - maria[i]);
+                mariaScores = mariaScores + (maria[i] - andrea[i]);
+            }
+        }
+
+        if (andreaScores > mariaScores) {
+            return "Andrea";
+        } else if (andreaScores == mariaScores) {
+            return "Tie";
+        } else {
+            return "Maria";
+        }
+    }
+
+    /*
+     * Complete the function below.
+     */
+    static String[] triangleOrNot(int[] a, int[] b, int[] c) {
+        if (a.length != b.length && b.length != c.length && a.length != c.length) {
+            return new String[0];
+        }
+
+        int N = a.length;
+        String[] result = new String[N];
+
+        for (int i = 0; i < N; i++) {
+            int A = a[i];
+            int B = b[i];
+            int C = c[i];
+            if (((A + B) > C) && ((B + C) > A) && ((C + A) > B)) {
+                result[i] = "Yes";
+            } else {
+                result[i] = "No";
+            }
+        }
+
+        return result;
     }
 
     private static class Solution {
@@ -41,6 +121,4 @@ public class Triangle {
             return 0;
         }
     }
-
-
 }

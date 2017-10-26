@@ -23,7 +23,7 @@ import java.util.*
  */
 
 fun main(args: Array<String>) {
-    val numbers = arrayOf(2, 1, 1, 2, 3, 1)
+    compressedString("hello")
 }
 
 fun solution(A: IntArray, N: Int): Int {
@@ -35,5 +35,16 @@ fun solution(A: IntArray, N: Int): Int {
         if (A[i - 2] + A[i - 1] > A[i]) return 1
     }
     return 0
+}
+
+fun compressedString(message: String): String {
+    val result = ""
+    val charactersArray = message.toCharArray()
+
+    for (i in charactersArray) {
+
+    }
+    return ""
+
 }
 
