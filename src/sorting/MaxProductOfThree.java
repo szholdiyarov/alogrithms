@@ -37,8 +37,6 @@ public class MaxProductOfThree {
             int sum = P * Q * R;
 
             return Math.max(highest, sum);
-
-
         }
     }
 }
