@@ -51,7 +51,7 @@ fun infixToPostfix(expression: String): String {
                         result += operandsStack.pop()
 
                         if (operandsStack.peek() != '(')
-                        operandsStack.push(it)
+                            operandsStack.push(it)
                     } else {
                         operandsStack.push(it)
                     }
@@ -71,7 +71,7 @@ fun infixToPostfix(expression: String): String {
 }
 
 fun Char.hasHigherPrecedence(anotherChar: Char): Boolean {
-    if (anotherChar.equals('(')){
+    if (anotherChar.equals('(')) {
         return false
     }
 
