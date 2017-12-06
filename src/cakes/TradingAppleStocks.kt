@@ -12,6 +12,9 @@ import java.util.*
  * So if the stock cost $500 at 10:30am, stockPricesYesterday[60] = 500.
 
  * Write an efficient method that takes stockPricesYesterday and returns the best profit I could have made from 1 purchase and 1 sale of 1 Apple stock yesterday.
+ *
+ * Finding minimum and maximum value ?
+ *
  */
 fun main(args: Array<String>) {
     val expression = arrayOf(11, 7, 9, 8, 10, 5)
